@@ -1,0 +1,13 @@
+/* 
+    Глобальные стили
+*/
+body,
+html {
+  height: auto;
+  min-height: 100%;
+  font-family: $font-1;
+  color: $color-2;
+}
+a {
+  text-decoration: none;
+}

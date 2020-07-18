@@ -1,0 +1,26 @@
+/**
+  Контрольные точки
+*/
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+/**
+  Часто используемые цвета
+*/
+$color-1: #8d9194;
+$color-2: #00182d;
+$color-3: #e62d38;
+$color-4: #f6f5f5;
+$color-5: #878d92;
+$color-6: #c3c5c8;
+
+/* 
+  Шрифты
+*/
+$font-1: "Geometria", sans-serif;

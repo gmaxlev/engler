@@ -1,0 +1,30 @@
+.modal-form {
+}
+.modal-form__input {
+  margin-bottom: 30px;
+  position: relative;
+  .input-text {
+    width: 100%;
+  }
+}
+.modal-form__act {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 55px;
+  align-items: center;
+  button {
+    width: 213px;
+  }
+  @include media-breakpoint-down(xs) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  span {
+    color: $color-5;
+    font-size: 0.875rem;
+    max-width: 170px;
+    @include media-breakpoint-down(xs) {
+      margin-top: 20px;
+    }
+  }
+}

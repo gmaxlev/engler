@@ -1,0 +1,28 @@
+.formsrc {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -30px;
+  position: relative;
+}
+.formsrc__item {
+  width: calc(50% - 10px);
+  margin-bottom: 30px;
+  margin-right: 20px;
+  text-align: right;
+  position: relative;
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: left;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+  .input-text {
+    width: 100%;
+  }
+}

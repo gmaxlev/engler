@@ -1,0 +1,94 @@
+%svg-common {
+	background: url("svg/sprite.view.svg") no-repeat;
+}
+
+.svg-svgsprite_calculator {
+	@extend %svg-common;
+	background-position: 63.7998017839445% 54.00949367088607%;
+}
+
+.svg-svgsprite_calculator-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.svg-svgsprite_close {
+	@extend %svg-common;
+	background-position: 99.80701754385964% 0;
+}
+
+.svg-svgsprite_close-dims {
+	width: 512px;
+	height: 512px;
+}
+
+.svg-svgsprite_error {
+	@extend %svg-common;
+	background-position: 0 99.95119665794714%;
+}
+
+.svg-svgsprite_error-dims {
+	width: 451.74px;
+	height: 451.74px;
+}
+
+.svg-svgsprite_facebook_like {
+	@extend %svg-common;
+	background-position: 46.332307692307694% 56.018599562363235%;
+}
+
+.svg-svgsprite_facebook_like-dims {
+	width: 50px;
+	height: 50px;
+}
+
+.svg-svgsprite_phone {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg-svgsprite_phone-dims {
+	width: 512.01px;
+	height: 512.01px;
+}
+
+.svg-svgsprite_phone_2 {
+	@extend %svg-common;
+	background-position: 58.66733668341708% 54.819057815845824%;
+}
+
+.svg-svgsprite_phone_2-dims {
+	width: 30px;
+	height: 30px;
+}
+
+.svg-svgsprite_secured_letter {
+	@extend %svg-common;
+	background-position: 61.68241206030151% 54.819057815845824%;
+}
+
+.svg-svgsprite_secured_letter-dims {
+	width: 30px;
+	height: 30px;
+}
+
+.svg-svgsprite_telegram_app_1 {
+	@extend %svg-common;
+	background-position: 55.56294058408862% 54.93669527896996%;
+}
+
+.svg-svgsprite_telegram_app_1-dims {
+	width: 32px;
+	height: 32px;
+}
+
+.svg-svgsprite_viber_1 {
+	@extend %svg-common;
+	background-position: 51.46051282051282% 56.018599562363235%;
+}
+
+.svg-svgsprite_viber_1-dims {
+	width: 50px;
+	height: 50px;
+}
+

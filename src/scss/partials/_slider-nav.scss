@@ -1,0 +1,29 @@
+.slider-nav {
+  display: inline-flex;
+}
+
+.slider-nav__act {
+  outline: none;
+  border: 0;
+  border-radius: 0;
+  transition: background-color 0.3s;
+  width: 55px;
+  height: 55px;
+  background-color: $color-2;
+  margin-right: 18px;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: $color-3;
+  }
+}
+.slider-nav__act_prev {
+  background-image: url(../img/prev.png);
+}
+.slider-nav__act_next {
+  background-image: url(../img/next.png);
+}

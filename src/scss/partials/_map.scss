@@ -1,0 +1,17 @@
+.map {
+  height: 650px;
+  position: relative;
+  @include media-breakpoint-down(md) {
+    height: auto;
+  }
+}
+.map__frame {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  @include media-breakpoint-down(md) {
+    position: static;
+    height: 500px;
+  }
+}

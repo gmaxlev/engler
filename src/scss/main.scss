@@ -1,0 +1,54 @@
+// Переменные (breakpoints, цвета, шрифты и т. д.)
+@import "./variables";
+
+// Шрифты
+@import "./modules/fonts";
+
+// Медиа запросы
+@import "./modules/breakpoints";
+
+// Вспомагательные классы
+@import "./modules/responsive";
+
+// Сброс стандартных стилей (normalize.css)
+@import "./vendor/normalize";
+
+// PNG Спрайты
+@import "./modules/png-sprites";
+
+// Глобальные стили
+@import "./global";
+
+// Блоки (БЭМ)
+@import "./partials/wrapper";
+@import "./partials/container";
+@import "./partials/modal";
+@import "./partials/modal-window";
+@import "./partials/form-send-success";
+@import "./partials/form-send-error";
+@import "./partials/input-text";
+@import "./partials/modal-form";
+@import "./partials/button";
+@import "./partials/input-form-error";
+
+@import "./partials/header";
+@import "./partials/intro";
+@import "./partials/section-form";
+@import "./partials/formsrc";
+@import "./partials/form-header";
+@import "./partials/section-services";
+@import "./partials/section-header";
+@import "./partials/list-services";
+@import "./partials/accompanying";
+@import "./partials/promo";
+@import "./partials/messenger";
+@import "./partials/section-reviews";
+@import "./partials/review";
+@import "./partials/slider-nav";
+@import "./partials/slider-pag";
+@import "./partials/map";
+@import "./partials/map-header";
+@import "./partials/clients";
+@import "./partials/footer";
+@import "./partials/footer-social";
+@import "./partials/lines";

@@ -1,0 +1,38 @@
+.messenger {
+  width: 182px;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px 5px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+
+  .svg-sprite {
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 0.875rem;
+    font-weight: 900;
+  }
+}
+.messenger_viber {
+  $color: #7360f2;
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 5%);
+  }
+}
+.messenger_telegram {
+  $color: #0088cc;
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 5%);
+  }
+}

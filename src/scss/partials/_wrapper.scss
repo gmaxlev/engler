@@ -1,0 +1,9 @@
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding-top: 73px;
+  @include media-breakpoint-down(sm) {
+    padding-top: 60px;
+  }
+}

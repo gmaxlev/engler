@@ -1,0 +1,29 @@
+.clients {
+  margin: 100px 0;
+}
+.clients__list {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include media-breakpoint-down(xs) {
+    justify-content: center;
+  }
+  img {
+    margin-right: 25px;
+    margin-bottom: 51px;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray; /* IE 6-9 */
+    cursor: pointer;
+    @include media-breakpoint-down(xs) {
+      max-width: 60px;
+    }
+    &:hover {
+      filter: none;
+    }
+  }
+}

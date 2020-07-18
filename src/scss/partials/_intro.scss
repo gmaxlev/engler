@@ -1,0 +1,126 @@
+.intro {
+  background-image: url(../img/intro.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.intro__content {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 220px;
+  padding-bottom: 220px;
+  @include media-breakpoint-down(md) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+}
+.intro__text {
+  width: 60%;
+  padding-right: 30px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+  @include media-breakpoint-down(sm) {
+    padding-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+.intro__header {
+  font-size: 4.25rem;
+  line-height: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  @include media-breakpoint-down(lg) {
+    font-size: 3.4rem;
+    line-height: 3.9rem;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 2.8rem;
+    line-height: 3.3rem;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 2.5rem;
+    line-height: 3.3rem;
+  }
+  @include media-breakpoint-down(xs) {
+    font-size: 2.1rem;
+    line-height: 2.9rem;
+  }
+}
+.intro__tb {
+  @supports (-webkit-text-stroke: 1px #fff) {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    -webkit-text-fill-color: transparent;
+  }
+  @include media-breakpoint-down(sm) {
+    display: block;
+  }
+}
+.intro__comment {
+  font-size: 1.625rem;
+  line-height: 1.875rem;
+  max-width: 500px;
+  margin-top: 45px;
+  @include media-breakpoint-down(sm) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include media-breakpoint-down(xs) {
+    font-size: 1.325rem;
+    margin-top: 20px;
+  }
+}
+.intro__act {
+  margin-top: 100px;
+  @include media-breakpoint-down(lg) {
+    transform: translateY(12px);
+  }
+  @include media-breakpoint-down(sm) {
+    margin-top: 50px;
+  }
+  @include media-breakpoint-down(xs) {
+    margin-top: 20px;
+  }
+}
+.intro__art {
+  transform: translateY(15px);
+  width: 44%;
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
+
+.intro__img {
+  display: inline-flex;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border: 1px solid #fff;
+    transform: translate(20px, -20px);
+    z-index: 1;
+    @include media-breakpoint-down(lg) {
+      transform: translate(10px, -10px);
+    }
+  }
+  img {
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+}

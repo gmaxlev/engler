@@ -1,0 +1,453 @@
+include templates/mixins.pug
+
+<!doctype html>
+html(lang="ru")
+
+    head
+
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        
+        title Title
+
+        link(rel="stylesheet", href="css/main.css")
+        link(rel="stylesheet", href="vendor/animate.min.css")
+        //- link(rel="stylesheet", href="vendor/fancybox/jquery.fancybox.min.js")
+        link(rel="stylesheet", href="vendor/swiper/swiper.min.css")
+        
+        script(src="vendor/jquery.min.js")
+        script(src="vendor/jquery.validate.min.js")
+        script(src="vendor/axios.min.js")
+        script(src="vendor/jquery.mask.min.js")
+        script(src="vendor/wow.min.js")
+        //- script(src="vendor/fancybox/jquery.fancybox.min.js")
+        script(src="vendor/swiper/swiper.min.js")
+
+
+        // ===================
+        // LOADING SVG SPRITES
+        // ===================
+        script.
+            $(document).ready(function() {
+                var req = new XMLHttpRequest();
+                req.onload = function (e) {
+                    var svg = document.implementation.createHTMLDocument( '' );
+                    svg.body.innerHTML = e.target.response.replace('<svg ', '<svg style="display: none"');
+                    document.body.appendChild(svg.body.firstElementChild);
+                    svg = null;
+                };
+                req.open('GET', './img/sprite.defs.svg', true);
+                req.responseType = 'text';
+                req.send();
+            });
+        // =======================
+        // END LOADING SVG SPRITES
+        // =======================
+            
+    body
+        
+        .wrapper
+
+            // =================
+            // МОДАЛЬНАЯ ФОРМА 1
+            // =================
+            .modal(data-is-modal)#modal-1
+                .modal__window
+                    .modal__content
+                        .modal-window
+                            .modal-window__header Заполните форму
+                            .modal-window__subheader Введите, пожалуйста, ваши данные и наш менеджер свяжеться с вами в ближайшее время
+                            form.modal-form(data-form-type-valide="2" data-form-type="1" name="Форма 1")
+                                .modal-form__input
+                                    .input-text.input-text_required
+                                        input(type="text", name="name", placeholder="Ваше имя")
+                                .modal-form__input
+                                    .input-text.input-text_required
+                                        input(type="text", name="phone", placeholder="Контактный телефон").phone-mask
+                                .modal-form__act
+                                    button.button.button_b Отправить
+                                    span * - обязательные поля для заполнения
+                                .form-send-error
+                                    +svg-sprite('svgsprite_error', 'svg-sprite')
+                                    span Ошибка. Не удалось отправить данные. <br>
+                                        span.form-send-error__text
+                                .form-send-success
+                                    +svg-sprite('svgsprite_phone', 'svg-sprite')
+                                    span Спасибо!<br> Ожидайте наш звонок.
+                                    .form-send-success__params
+                        .modal-window__close(data-modal-close)
+                            +svg-sprite('svgsprite_close', 'svg-sprite')
+            // =====================
+            // END МОДАЛЬНАЯ ФОРМА 2
+            // =====================
+
+            // ======
+            // HEADER
+            // ======
+            header.header.wow.fadeInDown
+                .container.header__content
+                    .header__logo
+                        img(src="img/logo.png", alt="")
+                    .header__about Авиационные перевозки грузов из стран Азии
+                    a(href="mailto:rfq@engler.msk.ru").header__email
+                        +svg-sprite('svgsprite_secured_letter', 'svg-sprite')
+                        span rfq@engler.msk.ru
+                    a(href="tel:74952461998").header__phone
+                        +svg-sprite('svgsprite_phone_2', 'svg-sprite')
+                        span 7 (495) 246 19 98
+            // ==========
+            // END HEADER
+            // ==========
+            
+            // =====
+            // INTRO
+            // =====
+            .intro
+                .container.intro__content
+                    .lines
+                        span
+                        span
+                        span
+                        span
+                    .intro__text
+                        h1.intro__header.wow.fadeInUp Авиадоставка грузов 
+                            span.intro__tb.wow.fadeInUp(data-wow-delay="0.5s") из азии
+                        .intro__comment.wow.fadeInUp(data-wow-delay="1s") компанией-экпедитором из Гонконга без посредников
+                        .intro__act.wow.fadeInUp(data-wow-delay="1.5s")
+                            button.button.button_a(data-modal="modal-1")
+                                +svg-sprite('svgsprite_calculator', 'svg-sprite')
+                                span Рассчитать тариф
+                    .intro__art.wow.fadeInRight
+                        .intro__img
+                            img(src="img/hong-kong-skyline-view.png", alt="")
+            // =========
+            // END INTRO
+            // =========
+
+            // =====
+            // ФОРМА
+            // =====
+            .container
+                .section-form
+                    .section-form__header.wow.fadeInLeft
+                        .form-header Узнайте, сколько вы сэкономите при сотрудничестве <br>с Engler
+                            img(src="img/calculator.png", alt="")
+                        .section-form__comment * - обязательные поля для заполнения
+                    .section-form__form.wow.fadeInUp(data-wow-delay="0.5s")
+                        .section-form__title Введите нужные данные для просчета и мы сообщим актуальный тариф
+                        form.formsrc(data-form-type-valide="1" data-form-type="2" name="Форма 2")
+                            .formsrc__item
+                                .input-text
+                                    input(type="text" placeholder="Опишите груз" name="description")
+                            .formsrc__item
+                                .input-text
+                                    input(type="text" placeholder="Адрес доставки" name="address")
+                            .formsrc__item
+                                .input-text
+                                    input(type="text" placeholder="Порт отгрузки" name="port")
+                            .formsrc__item
+                                .input-text.input-text_required
+                                    input(type="text" placeholder="Ваше имя" name="name")
+                            .formsrc__item
+                                .input-text.input-text_required
+                                    input(type="text" placeholder="Контактный телефон" name="phone").phone-mask
+                            .formsrc__item
+                                button(type="submit").button.button_a
+                                    +svg-sprite('svgsprite_calculator', 'svg-sprite')
+                                    span Рассчитать тариф
+                        .form-send-error
+                                    +svg-sprite('svgsprite_error', 'svg-sprite')
+                                    span Ошибка. Не удалось отправить данные. <br>
+                                        span.form-send-error__text
+                        .form-send-success.form-send-success_silver
+                            +svg-sprite('svgsprite_phone', 'svg-sprite')
+                            span Спасибо!<br> Ожидайте наш звонок.
+                            .form-send-success__params
+            // ========
+            // END ОРМА
+            // ========
+
+            // =================
+            // ЧТО ЭТО ВАМ ДАЕТ?
+            // =================
+            .container
+                .section-services
+                    .section-services__text
+                        .section-services__header
+                            .section-header.wow.fadeInUp Компания <span>Engler</span><br> базируется в Гонконге. <br>Что вам это дает?
+                        ul.list-services
+                            li.list-services__item.wow.fadeInLeft(data-wow-delay="0.1s")
+                                .list-services__num _01.
+                                .list-services__text Экономия 5-10% на логистике, ведь вы работаете без посредника в СНГ
+                            li.list-services__item.wow.fadeInLeft(data-wow-delay="0.2s")
+                                .list-services__num _02.
+                                .list-services__text Прямые контракты с генеральными агентами авиалиний
+                            li.list-services__item.wow.fadeInLeft(data-wow-delay="0.3s")
+                                .list-services__num _03.
+                                .list-services__text Оперативное предоставление документов для таможенного оформления до прилета груза
+                            li.list-services__item.wow.fadeInLeft(data-wow-delay="0.4s")
+                                .list-services__num _04.
+                                .list-services__text Гарантированное место на некоторых рейсах для срочных грузов
+                        .section-services__comment.wow.fadeInLeft(data-wow-delay="0.5s")
+                            img(src="img/error.png", alt="")
+                            span Кроме того, оплата производится по факту доставки.  Возможно предоставление отсрочки платежа.
+                    .section-services__image
+                        .section-services__aircraft.wow.rotateInUpRight(data-wow-delay="1s")
+                            img(src="img/aircraft.png", alt="")
+                        img(src="img/engler.png", alt="")
+            // =====================
+            // END ЧТО ЭТО ВАМ ДАЕТ?
+            // =====================
+
+            // =======================
+            // СОПРОВОДИТЕЛЬНЫЕ УСЛУГИ
+            // =======================
+            .accompanying
+                .container
+                    .accompanying__content
+                        .lines
+                            span
+                            span
+                            span
+                            span
+                        .accompanying__header
+                            .section-header.wow.fadeInUp Мы оказываем все сопроводительные услуги
+                        .accompanying__list
+                            .accompanying__item.wow.fadeInUp(data-wow-delay="0.1s")
+                                .accompanying__icon
+                                    img(src="img/defense.png", alt="")
+                                .accompanying__text Страхование груза
+                            .accompanying__item.wow.fadeInUp(data-wow-delay="0.2s")
+                                .accompanying__icon
+                                    img(src="img/special.png", alt="")
+                                .accompanying__text Помощь в оформлении <br>документов
+                            .accompanying__item.wow.fadeInUp(data-wow-delay="0.3s")
+                                .accompanying__icon
+                                    img(src="img/search_property.png", alt="")
+                                .accompanying__text Поиск поставщиков <br>в Азии
+                            .accompanying__item.wow.fadeInUp(data-wow-delay="0.4s")
+                                .accompanying__icon
+                                    img(src="img/track_order.png", alt="")
+                                .accompanying__text Консалтинг по оптимизации <br>логистики
+                        .accompanying__act.wow.fadeInUp(data-wow-delay="0.5s")
+                            button.button.button_b(data-modal="modal-1") Заказать услугу
+            // ===========================
+            // END СОПРОВОДИТЕЛЬНЫЕ УСЛУГИ
+            // ===========================
+
+            // ================================
+            // ХОТИТЕ БЫТЬ В КУРСЕ ВСЕХ СКИДОК?
+            // ================================
+            .promo
+                .container
+                    .promo__content
+                        .promo__img.wow.fadeInLeft(data-wow-delay="0.1s")
+                            img(src="img/percent.png", alt="")
+                        .promo__text.wow.fadeInLeft(data-wow-delay="0.2s")
+                            .promo__header Хотите быть в курсе всех скидок?
+                            .promo__comment Иногда мы вынуждены доставлять груз практически по себестоимости, чтобы не потерять место на рейсе. Подпишитесь на рассылку и узнавайте первыми о самых выгодных акционных предложениях!
+                        .promo__messengers.wow.fadeInLeft(data-wow-delay="0.3s")
+                            span Следить в:
+                            button.messenger.messenger_viber
+                                +svg-sprite('svgsprite_viber_1', 'svg-sprite')
+                                span Viber
+                            button.messenger.messenger_telegram
+                                +svg-sprite('svgsprite_telegram_app_1', 'svg-sprite')
+                                span Telegram
+            // ====================================
+            // END ХОТИТЕ БЫТЬ В КУРСЕ ВСЕХ СКИДОК?
+            // ====================================
+
+            // ======
+            // ОТЗЫВЫ
+            // ======
+            .container
+                .section-reviews
+                    .section-header.wow.fadeInUp <span>Engler</span> берет ваши проблемы на себя. <br>Вот несколько примеров
+                    .section-reviews__content
+                        .section-reviews__image.wow.fadeInLeft(data-wow-delay="0.1s")
+                            img(src="img/woman.png", alt="")
+                        .section-reviews__text
+                            .swiper-container#slider-reviews
+                                .swiper-wrapper
+                                    .swiper-slide
+                                        .review
+                                            .review__header Как доставить партию посуды с экономией 50% для заказчика
+                                            .review__text
+                                                p Наша компания специализируется также на опасных, крупногабаритных, скоропортящихся грузах. Однажды нам заказали перевозку с Китая, груз - посуда. Этот груз относится к хрупким и упаковка должна соответствовать всем требованиям IATA + дополнительно защищать груз от повреждений.
+                                                p После переупаковки увеличился объем, соответственно и тарифицируемый вес. Но мы предложили использовать малоизвестную схему в сфере авиаперевозок - тариф по формуле VOLUME SHARE. К сожалению для клиентов, далеко не каждый опытный логист знает об этой возможности.
+                                            .review__comment Благодаря нашему сотруднику Юлии, клиент сэкономил практически 50% стоимости перевозки!
+                                                +svg-sprite('svgsprite_facebook_like', 'svg-sprite')
+                                    .swiper-slide
+                                        .review
+                                            .review__header 2 Как доставить партию посуды с экономией 50% для заказчика
+                                            .review__text
+                                                p Наша компания специализируется также на опасных, крупногабаритных, скоропортящихся грузах. Однажды нам заказали перевозку с Китая, груз - посуда. Этот груз относится к хрупким и упаковка должна соответствовать всем требованиям IATA + дополнительно защищать груз от повреждений.
+                                                p После переупаковки увеличился объем, соответственно и тарифицируемый вес. Но мы предложили использовать малоизвестную схему в сфере авиаперевозок - тариф по формуле VOLUME SHARE. К сожалению для клиентов, далеко не каждый опытный логист знает об этой возможности.
+                                            .review__comment Благодаря нашему сотруднику Юлии, клиент сэкономил практически 50% стоимости перевозки!
+                                                +svg-sprite('svgsprite_facebook_like', 'svg-sprite')
+                                    .swiper-slide
+                                        .review
+                                            .review__header 3 Как доставить партию посуды с экономией 50% для заказчика
+                                            .review__text
+                                                p Наша компания специализируется также на опасных, крупногабаритных, скоропортящихся грузах. Однажды нам заказали перевозку с Китая, груз - посуда. Этот груз относится к хрупким и упаковка должна соответствовать всем требованиям IATA + дополнительно защищать груз от повреждений.
+                                                p После переупаковки увеличился объем, соответственно и тарифицируемый вес. Но мы предложили использовать малоизвестную схему в сфере авиаперевозок - тариф по формуле VOLUME SHARE. К сожалению для клиентов, далеко не каждый опытный логист знает об этой возможности.
+                                            .review__comment Благодаря нашему сотруднику Юлии, клиент сэкономил практически 50% стоимости перевозки!
+                                                +svg-sprite('svgsprite_facebook_like', 'svg-sprite')
+                                    .swiper-slide
+                                        .review
+                                            .review__header 4 Как доставить партию посуды с экономией 50% для заказчика
+                                            .review__text
+                                                p Наша компания специализируется также на опасных, крупногабаритных, скоропортящихся грузах. Однажды нам заказали перевозку с Китая, груз - посуда. Этот груз относится к хрупким и упаковка должна соответствовать всем требованиям IATA + дополнительно защищать груз от повреждений.
+                                                p После переупаковки увеличился объем, соответственно и тарифицируемый вес. Но мы предложили использовать малоизвестную схему в сфере авиаперевозок - тариф по формуле VOLUME SHARE. К сожалению для клиентов, далеко не каждый опытный логист знает об этой возможности.
+                                            .review__comment Благодаря нашему сотруднику Юлии, клиент сэкономил практически 50% стоимости перевозки!
+                                                +svg-sprite('svgsprite_facebook_like', 'svg-sprite')
+                                    .swiper-slide
+                                        .review
+                                            .review__header 5 Как доставить партию посуды с экономией 50% для заказчика
+                                            .review__text
+                                                p Наша компания специализируется также на опасных, крупногабаритных, скоропортящихся грузах. Однажды нам заказали перевозку с Китая, груз - посуда. Этот груз относится к хрупким и упаковка должна соответствовать всем требованиям IATA + дополнительно защищать груз от повреждений.
+                                                p Наша компания специализируется также на опасных, крупногабаритных, скоропортящихся грузах. Однажды нам заказали перевозку с Китая, груз - посуда. Этот груз относится к хрупким и упаковка должна соответствовать всем требованиям IATA + дополнительно защищать груз от повреждений.
+                                                p После переупаковки увеличился объем, соответственно и тарифицируемый вес. Но мы предложили использовать малоизвестную схему в сфере авиаперевозок - тариф по формуле VOLUME SHARE. К сожалению для клиентов, далеко не каждый опытный логист знает об этой возможности.
+                                            .review__comment Благодаря нашему сотруднику Юлии, клиент сэкономил практически 50% стоимости перевозки!
+                                                +svg-sprite('svgsprite_facebook_like', 'svg-sprite')
+                            .section-reviews__nav
+                                .slider-nav
+                                    button.slider-nav__act.slider-nav__act_prev#slider-reviews-prev
+                                    button.slider-nav__act.slider-nav__act_next#slider-reviews-next
+                                .slider-pag#slider-reviews-pagination
+            // ==========
+            // END ОТЗЫВЫ
+            // ==========
+
+            // =====
+            // КАРТА
+            // =====
+            .map
+                .container
+                    .map-header.wow.fadeInLeft(data-wow-delay="0.1s")
+                        span 19 представительств <br>в Азии.
+                        .map-header__accent 15 лет в авиаперевозках
+                        img(src="img/skyscrapers.png", alt="")
+                    .map__frame
+                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1vVMFfLpdB2JJsfO1tyV7ktTAcjzpMMWi" width="100%" height="100%"></iframe>
+            // =========
+            // END КАРТА
+            // =========
+
+            // =======
+            // КЛИЕНТЫ
+            // =======
+            .container
+                .clients
+                    .clients__header
+                        .section-header.wow.fadeInUp Нам доверяют <span>крупнейшие</span> клиенты
+                    .clients__list.wow.zoomIn
+                        img(src="img/clients/ZTEf.png", alt="")
+                        img(src="img/clients/Verifone.png", alt="")
+                        img(src="img/clients/TTC.png", alt="")
+                        img(src="img/clients/TopField.png", alt="")
+                        img(src="img/clients/Planet.png", alt="")
+                        img(src="img/clients/Moxa.png", alt="")
+                        img(src="img/clients/Juniper.png", alt="")
+                        img(src="img/clients/IBM-1.png", alt="")
+                        img(src="img/clients/HUAWAY-1.png", alt="")
+                        img(src="img/clients/Exide-1.png", alt="")
+                        img(src="img/clients/eci-1.png", alt="")
+                        img(src="img/clients/Pebeo.png", alt="")
+                        img(src="img/clients/Tainet.png", alt="")
+                        img(src="img/clients/Opax.png", alt="")
+                        img(src="img/clients/Ventura-1.png", alt="")
+                        img(src="img/clients/Dell.png", alt="")
+                        img(src="img/clients/Cisco.png", alt="")
+                        img(src="img/clients/Amino.png", alt="")
+                        img(src="img/clients/Asus.png", alt="")
+                        img(src="img/clients/Changhong.png", alt="")
+                        img(src="img/clients/Armagard-1.png", alt="")
+                        img(src="img/clients/photo_2020-07-08_19-06-40.png", alt="")
+                        img(src="img/clients/photo_2020-07-08_19-06-32.png", alt="")
+                        img(src="img/clients/FirstPower-2.png", alt="")
+                        img(src="img/clients/Canon.png", alt="")
+            // ===========
+            // END КЛИЕНТЫ
+            // ===========
+
+            // =====
+            // ФОРМА
+            // =====
+            .container
+                .section-form
+                    .section-form__header.wow.fadeInLeft(data-wow-delay="0.1s")
+                        .form-header Узнайте, сколько вы сэкономите при сотрудничестве <br>с Engler
+                            img(src="img/calculator.png", alt="")
+                        .section-form__comment * - обязательные поля для заполнения
+                    .section-form__form.wow.fadeInUp(data-wow-delay="0.5s")
+                        .section-form__title Введите нужные данные для просчета и мы сообщим актуальный тариф
+                        form.formsrc(data-form-type-valide="1" data-form-type="2"  name="Форма 2")
+                            .formsrc__item
+                                .input-text
+                                    input(type="text" placeholder="Опишите груз" name="description")
+                            .formsrc__item
+                                .input-text
+                                    input(type="text" placeholder="Адрес доставки" name="address")
+                            .formsrc__item
+                                .input-text
+                                    input(type="text" placeholder="Порт отгрузки" name="port")
+                            .formsrc__item
+                                .input-text.input-text_required
+                                    input(type="text" placeholder="Ваше имя" name="name")
+                            .formsrc__item
+                                .input-text.input-text_required
+                                    input(type="text" placeholder="Контактный телефон" name="phone").phone-mask
+                            .formsrc__item
+                                button(type="submit").button.button_a
+                                    +svg-sprite('svgsprite_calculator', 'svg-sprite')
+                                    span Рассчитать тариф
+                        .form-send-error
+                                    +svg-sprite('svgsprite_error', 'svg-sprite')
+                                    span Ошибка. Не удалось отправить данные. <br>
+                                        span.form-send-error__text
+                        .form-send-success.form-send-success_silver
+                            +svg-sprite('svgsprite_phone', 'svg-sprite')
+                            span Спасибо!<br> Ожидайте наш звонок.
+                            .form-send-success__params
+            // ========
+            // END ОРМА
+            // ========
+
+            // ======
+            // FOOTER
+            // ======
+            footer.footer
+                .container
+                    .footer__content
+                        .lines
+                            span
+                            span
+                            span
+                            span
+                        .footer__cell
+                            .footer__title Представительство в Шеньжень
+                            .footer__item 511, Jinlihua business building, Yiyuan Road, Shenzhen city, China
+                            .footer__item +86 135 90173249 Chinese + English
+                            .footer__item + 852 51975349 English + Russian
+                        .footer__cell
+                            .footer__title Московский офис
+                            .footer__item Россия, 119180, г. Москва, ул. Большая Полянка, д. 42, стр. 1 офис 605
+                            .footer__item + 7 495 246 19 98
+                            .footer__item rfq@engler.msk.ru
+                        .footer__cell.footer__cell_social
+                            .footer-social
+                                .footer-social__header Мы в соц сетях
+                                .footer-social__list
+                                    a(href="" style="background-image: url(img/VK_Logo.png)")
+                                    a(href="" style="background-image: url(img/facebook_f.png")
+                            .footer__copy
+                                span © Engler. Все права защищены
+                                img(src="img/tkachuk.png", alt="")
+            // ==========
+            // END FOOTER
+            // ==========
+
+            script(src="js/main.js")

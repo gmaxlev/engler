@@ -1,0 +1,70 @@
+.map-header {
+  background-color: $color-2;
+  color: #fff;
+  font-size: 2.25rem;
+  line-height: 2.875rem;
+  font-weight: 900;
+  padding: 46.5px 0;
+  position: relative;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  padding-right: 80px;
+  @include media-breakpoint-down(md) {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+  }
+  @include media-breakpoint-down(xs) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+    padding: 40px 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    background-color: $color-2;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: 99999%;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    background-color: $color-2;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 99999%;
+    z-index: 2;
+    display: none;
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+  }
+  img {
+    position: absolute;
+    bottom: 34px;
+    right: 35px;
+    @include media-breakpoint-down(xs) {
+      bottom: 10px;
+      right: 0;
+      max-width: 35px;
+    }
+  }
+}
+
+.map-header__accent {
+  line-height: 1.9375rem;
+  font-size: 1.5rem;
+  color: $color-3;
+  margin-top: 46.5px;
+}
