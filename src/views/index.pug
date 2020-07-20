@@ -115,11 +115,13 @@ html(lang="ru")
                             span.intro__tb.wow.fadeInUp(data-wow-delay="0.5s") из азии
                         .intro__comment.wow.fadeInUp(data-wow-delay="1s") компанией-экпедитором из Гонконга без посредников
                         .intro__act.wow.fadeInUp(data-wow-delay="1.5s")
-                            button.button.button_a(data-modal="modal-1")
+                            button.button.button_a(data-scrollto="section-form-1")
                                 +svg-sprite('svgsprite_calculator', 'svg-sprite')
                                 span Рассчитать тариф
-                    .intro__art.wow.fadeInRight
+                    .intro__art
                         .intro__img
+                            .intro__aircraft
+                                img(src="img/aircraft_009.png", alt="")
                             img(src="img/hong-kong-skyline-view.png", alt="")
             // =========
             // END INTRO
@@ -128,7 +130,7 @@ html(lang="ru")
             // =====
             // ФОРМА
             // =====
-            .container
+            .container#section-form-1
                 .section-form
                     .section-form__header.wow.fadeInLeft
                         .form-header Узнайте, сколько вы сэкономите при сотрудничестве <br>с Engler
@@ -193,8 +195,8 @@ html(lang="ru")
                             img(src="img/error.png", alt="")
                             span Кроме того, оплата производится по факту доставки.  Возможно предоставление отсрочки платежа.
                     .section-services__image
-                        .section-services__aircraft.wow.rotateInUpRight(data-wow-delay="1s")
-                            img(src="img/aircraft.png", alt="")
+                        .section-services__aircraft
+                            img(src="img/aircraft.png", alt="" data-wow-delay="1s").wow.rotateInUpRight
                         img(src="img/engler.png", alt="")
             // =====================
             // END ЧТО ЭТО ВАМ ДАЕТ?
@@ -266,8 +268,8 @@ html(lang="ru")
                 .section-reviews
                     .section-header.wow.fadeInUp <span>Engler</span> берет ваши проблемы на себя. <br>Вот несколько примеров
                     .section-reviews__content
-                        .section-reviews__image.wow.fadeInLeft(data-wow-delay="0.1s")
-                            img(src="img/woman.png", alt="")
+                        .section-reviews__image
+                            img(src="img/woman.png", alt="" data-wow-delay="0.1s").wow.fadeInLeft
                         .section-reviews__text
                             .swiper-container#slider-reviews
                                 .swiper-wrapper
@@ -344,31 +346,56 @@ html(lang="ru")
                     .clients__header
                         .section-header.wow.fadeInUp Нам доверяют <span>крупнейшие</span> клиенты
                     .clients__list.wow.zoomIn
-                        img(src="img/clients/ZTEf.png", alt="")
-                        img(src="img/clients/Verifone.png", alt="")
-                        img(src="img/clients/TTC.png", alt="")
-                        img(src="img/clients/TopField.png", alt="")
-                        img(src="img/clients/Planet.png", alt="")
-                        img(src="img/clients/Moxa.png", alt="")
-                        img(src="img/clients/Juniper.png", alt="")
-                        img(src="img/clients/IBM-1.png", alt="")
-                        img(src="img/clients/HUAWAY-1.png", alt="")
-                        img(src="img/clients/Exide-1.png", alt="")
-                        img(src="img/clients/eci-1.png", alt="")
-                        img(src="img/clients/Pebeo.png", alt="")
-                        img(src="img/clients/Tainet.png", alt="")
-                        img(src="img/clients/Opax.png", alt="")
-                        img(src="img/clients/Ventura-1.png", alt="")
-                        img(src="img/clients/Dell.png", alt="")
-                        img(src="img/clients/Cisco.png", alt="")
-                        img(src="img/clients/Amino.png", alt="")
-                        img(src="img/clients/Asus.png", alt="")
-                        img(src="img/clients/Changhong.png", alt="")
-                        img(src="img/clients/Armagard-1.png", alt="")
-                        img(src="img/clients/photo_2020-07-08_19-06-40.png", alt="")
-                        img(src="img/clients/photo_2020-07-08_19-06-32.png", alt="")
-                        img(src="img/clients/FirstPower-2.png", alt="")
-                        img(src="img/clients/Canon.png", alt="")
+                        .clients__item
+                            img(src="img/clients/ZTEf.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Verifone.png", alt="")
+                        .clients__item
+                            img(src="img/clients/TTC.png", alt="")
+                        .clients__item
+                            img(src="img/clients/TopField.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Planet.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Moxa.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Juniper.png", alt="")
+                        .clients__item
+                            img(src="img/clients/IBM-1.png", alt="")
+                        .clients__item
+                            img(src="img/clients/HUAWAY-1.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Exide-1.png", alt="")
+                        .clients__item
+                            img(src="img/clients/eci-1.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Pebeo.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Tainet.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Opax.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Ventura-1.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Dell.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Cisco.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Amino.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Asus.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Changhong.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Armagard-1.png", alt="")
+                        .clients__item
+                            img(src="img/clients/photo_2020-07-08_19-06-40.png", alt="")
+                        .clients__item
+                            img(src="img/clients/photo_2020-07-08_19-06-32.png", alt="")
+                        .clients__item
+                            img(src="img/clients/FirstPower-2.png", alt="")
+                        .clients__item
+                            img(src="img/clients/Canon.png", alt="")
             // ===========
             // END КЛИЕНТЫ
             // ===========

@@ -5,8 +5,9 @@
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  @include media-breakpoint-down(xs) {
+  justify-content: flex-start;
+  align-items: center;
+  @include media-breakpoint-down(sm) {
     justify-content: center;
   }
   img {
@@ -19,6 +20,7 @@
     filter: grayscale(100%);
     filter: gray; /* IE 6-9 */
     cursor: pointer;
+    transition: filter 0.3s;
     @include media-breakpoint-down(xs) {
       max-width: 60px;
     }

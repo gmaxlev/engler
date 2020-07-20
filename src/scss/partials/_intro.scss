@@ -1,3 +1,14 @@
+@keyframes intro-art-back-show {
+  from {
+    opacity: 0;
+    transform: translateY(15px) translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(15px) translateX(0);
+  }
+}
+
 .intro {
   background-image: url(../img/intro.png);
   background-size: cover;
@@ -96,6 +107,10 @@
 .intro__art {
   transform: translateY(15px);
   width: 44%;
+  animation: intro-art-back-show 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
   @include media-breakpoint-down(sm) {
     display: none;
   }
@@ -118,9 +133,26 @@
       transform: translate(10px, -10px);
     }
   }
-  img {
+  & > img {
     max-width: 100%;
     position: relative;
     z-index: 2;
+  }
+}
+.intro__aircraft {
+  position: absolute;
+  z-index: 10;
+  right: 23px;
+  top: -8px;
+  display: flex;
+  justify-content: flex-end;
+  animation: intro-art-back-show 1s;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  & > img {
+    @include media-breakpoint-down(md) {
+      max-width: calc(100% + 144px);
+    }
   }
 }

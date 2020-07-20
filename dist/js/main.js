@@ -375,4 +375,20 @@ $(document).ready(function() {
       mySwiper.update();
     }, 1000);
   })();
+
+  /**
+   * Плавная прокрутка
+   */
+  (function() {
+    $("[data-scrollto]").on("click", function(e) {
+      e.preventDefault();
+      var id = $(this).attr("data-scrollto");
+      $([document.documentElement, document.body]).animate(
+        {
+          scrollTop: $("#" + id).offset().top - $(".header").innerHeight()
+        },
+        2000
+      );
+    });
+  })();
 });
